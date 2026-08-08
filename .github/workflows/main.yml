@@ -38,7 +38,7 @@ jobs:
       - name: Get source
         run: |
           git clone --recursive https://github.com/atria0/ShirokoNeko_kernel_nabu.git \
-          -b KernelSU \
+          -b master \
           --depth 1 $GITHUB_WORKSPACE/workdir/source
       - name: Install ReSukiSU
         run: |
