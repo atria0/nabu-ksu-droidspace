@@ -77,7 +77,6 @@ jobs:
           export CROSS_COMPILE=aarch64-linux-gnu-
           cd $GITHUB_WORKSPACE/workdir/source
           git clone https://gitlab.com/simonpunk/susfs4ksu.git
-          mkdir KernelSU
           cp ./kernel_patches/KernelSU/10_enable_susfs_for_ksu.patch KernelSU/
           cp ./kernel_patches/50_add_susfs_in_kernel-4.14.patch ./
           cp ./kernel_patches/fs/susfs.c ./fs/
