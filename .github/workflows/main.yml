@@ -68,7 +68,7 @@ jobs:
           export KBUILD_BUILD_USER=${{ github.actor }}
           export ARCH=arm64
           export ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true
-          export KBUILD_BUILD_HOST=欣然love白
+          export KBUILD_BUILD_HOST=lcx
           export KBUILD_BUILD_USER=kuan-@Xinran_StarBai
           export PATH="$GITHUB_WORKSPACE/workdir/clang/bin/:$PATH"
           export CROSS_COMPILE_ARM32=arm-linux-gnueabi-
