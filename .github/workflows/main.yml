@@ -37,7 +37,7 @@ jobs:
           git clone https://github.com/kdrag0n/proton-clang.git -b 20210522 --depth 1 $GITHUB_WORKSPACE/workdir/clang
       - name: Get source
         run: |
-          git clone --recursive https://github.com/Winkmoon/ShirokoNeko_kernel_nabu.git \
+          git clone --recursive https://github.com/atria0/ShirokoNeko_kernel_nabu.git \
           -b KernelSU \
           --depth 1 $GITHUB_WORKSPACE/workdir/source
       - name: Install SukiSU
