@@ -40,8 +40,8 @@ jobs:
           git clone --recursive https://github.com/atria0/ShirokoNeko_kernel_nabu.git \
           -b KernelSU \
           --depth 1 $GITHUB_WORKSPACE/workdir/source
-      - name: Install ReSukiSU
-        run: |
+      #- name: Install ReSukiSU
+      #  run: |
           cd $GITHUB_WORKSPACE/workdir/source
           sed -i "\$s|echo \"\\\$res\"|echo \"-nabu_aemeath-elysian\"|" ./scripts/setlocalversion
           rm -rf KernelSU
@@ -52,15 +52,15 @@ jobs:
           #echo "ksuver=$KSU_VERSION" >> $GITHUB_OUTPUT
           #export KSU_VERSION=$KSU_VERSION
           #sed -i "s/DKSU_VERSION=12800/DKSU_VERSION=$KSU_VERSION/" kernel/Makefile
-          cd ..
-          echo "CONFIG_MODULE_SIG=n" >> ./arch/arm64/configs/nabu_defconfig
-          echo "CONFIG_MODULE_SIG_ALL=n" >> ./arch/arm64/configs/nabu_defconfig
-          echo "CONFIG_MODULES=y" >> ./arch/arm64/configs/nabu_defconfig
-          echo "CONFIG_KERNELSU_DEBUG=n" >> ./arch/arm64/configs/nabu_defconfig
-          echo "CONFIG_KSU=y" >> ./arch/arm64/configs/nabu_defconfig
-          echo "CONFIG_KPM=y" >> ./arch/arm64/configs/nabu_defconfig
-          echo "CONFIG_MANUAL_HOOK=y" >> ./arch/arm64/configs/nabu_defconfig
-          echo "CONFIG_KERNELSU=y" >> ./arch/arm64/configs/nabu_defconfig
+          #cd ..
+          #echo "CONFIG_MODULE_SIG=n" >> ./arch/arm64/configs/nabu_defconfig
+          #echo "CONFIG_MODULE_SIG_ALL=n" >> ./arch/arm64/configs/nabu_defconfig
+          #echo "CONFIG_MODULES=y" >> ./arch/arm64/configs/nabu_defconfig
+          #echo "CONFIG_KERNELSU_DEBUG=n" >> ./arch/arm64/configs/nabu_defconfig
+          #echo "CONFIG_KSU=y" >> ./arch/arm64/configs/nabu_defconfig
+          #echo "CONFIG_KPM=y" >> ./arch/arm64/configs/nabu_defconfig
+          #echo "CONFIG_MANUAL_HOOK=y" >> ./arch/arm64/configs/nabu_defconfig
+          #echo "CONFIG_KERNELSU=y" >> ./arch/arm64/configs/nabu_defconfig
           #sed -i '/atomic_set(&current->seccomp.filter_count, 0);/d' drivers/kernelsu/core_hook.c
           
       - name: Build kernel
