@@ -37,7 +37,7 @@ jobs:
           git clone https://github.com/kdrag0n/proton-clang.git -b 20210522 --depth 1 $GITHUB_WORKSPACE/workdir/clang
       - name: Get source
         run: |
-          git clone --recursive https://github.com/atria0/android_kernel_xiaomi_nabu.git \
+          git clone --recursive https://github.com/Winkmoon/ShirokoNeko_kernel_nabu.git \
           -b master \
           --depth 1 $GITHUB_WORKSPACE/workdir/source
       - name: Install ReSukiSU
@@ -59,7 +59,6 @@ jobs:
           echo "CONFIG_KALLSYMS_ALL=n" >> ./arch/arm64/configs/nabu_defconfig
           echo "CONFIG_KSU=y" >> ./arch/arm64/configs/nabu_defconfig
           echo "CONFIG_KSU_MANUAL_HOOK=y" >> ./arch/arm64/configs/nabu_defconfig
-          echo "CONFIG_KSU_SUSFS=y" >> ./arch/arm64/configs/nabu_defconfig
           #sed -i '/atomic_set(&current->seccomp.filter_count, 0);/d' drivers/kernelsu/core_hook.c
           
       - name: Build kernel
