@@ -2,6 +2,8 @@ name: 构建小米平板5 hyperOS-kernel-next
 
 on:
   workflow_dispatch:
+permissions:
+  contents: write
 
 jobs:
   build:
@@ -130,7 +132,7 @@ jobs:
 
       - name: Create GitHub Release
         id: create_release
-        uses: softprops/action-gh-release@v3
+        uses: softprops/action-gh-release@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
