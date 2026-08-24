@@ -47,7 +47,7 @@ jobs:
           cd $GITHUB_WORKSPACE/workdir/source
           #sed -i "\$s|echo \"\\\$res\"|echo \"-nabu_aemeath-elysian\"|" ./scripts/setlocalversion
           rm -rf KernelSU
-          curl -LSs "https://raw.githubusercontent.com/ReSukiSU/ReSukiSU/main/kernel/setup.sh" | bash
+          git clone https://github.com/ReSukiSU/ReSukiSU.git ./KernelSU
           #curl -LSs "https://raw.githubusercontent.com/ShirkNeko/SukiSU-Ultra/refs/heads/main/kernel/setup.sh" | bash -s nongki
           #cd ./KernelSU
           #KSU_VERSION=$(expr $(/usr/bin/git rev-list --count main) "+" 10606)
@@ -60,11 +60,11 @@ jobs:
           #echo "CONFIG_MODULE_SIG_ALL=n" >> ./arch/arm64/configs/nabu_defconfig
           #echo "CONFIG_MODULES=y" >> ./arch/arm64/configs/nabu_defconfig
           #echo "CONFIG_KERNELSU_DEBUG=n" >> ./arch/arm64/configs/nabu_defconfig
-          echo "CONFIG_KSU=y" >> ./arch/arm64/configs/nabu_defconfig
-          echo "CONFIG_KPM=y" >> ./arch/arm64/configs/nabu_defconfig
-          echo "CONFIG_MANUAL_HOOK=y" >> ./arch/arm64/configs/nabu_defconfig
-          echo "CONFIG_KSU_MANUAL_HOOK=y" >> ./arch/arm64/configs/nabu_defconfig
-          echo "CONFIG_KERNELSU=y" >> ./arch/arm64/configs/nabu_defconfig
+          #echo "CONFIG_KSU=y" >> ./arch/arm64/configs/nabu_defconfig
+          #echo "CONFIG_KPM=y" >> ./arch/arm64/configs/nabu_defconfig
+          #echo "CONFIG_MANUAL_HOOK=y" >> ./arch/arm64/configs/nabu_defconfig
+          #echo "CONFIG_KSU_MANUAL_HOOK=y" >> ./arch/arm64/configs/nabu_defconfig
+          #echo "CONFIG_KERNELSU=y" >> ./arch/arm64/configs/nabu_defconfig
           #sed -i '/atomic_set(&current->seccomp.filter_count, 0);/d' drivers/kernelsu/core_hook.c
           #echo "CONFIG_SYSCTL=y" >> ./arch/arm64/configs/nabu_defconfig
           #echo "CONFIG_SYSVIPC=y" >> ./arch/arm64/configs/nabu_defconfig
