@@ -38,8 +38,8 @@ jobs:
       - name: Get source
         run: |
           git clone --recursive https://github.com/atria0/ShirokoNeko_kernel_nabu.git \
-          -b master \
-          --depth 1 $GITHUB_WORKSPACE/workdir/source
+          -b KernelSU \
+             $GITHUB_WORKSPACE/workdir/source
       - name: Install ReSukiSU
         run: |
           cd $GITHUB_WORKSPACE/workdir/source
@@ -62,22 +62,22 @@ jobs:
           #echo "CONFIG_MANUAL_HOOK=y" >> ./arch/arm64/configs/nabu_defconfig
           #echo "CONFIG_KERNELSU=y" >> ./arch/arm64/configs/nabu_defconfig
           #sed -i '/atomic_set(&current->seccomp.filter_count, 0);/d' drivers/kernelsu/core_hook.c
-          echo "CONFIG_SYSCTL=y" >> ./arch/arm64/configs/nabu_defconfig
-          echo "CONFIG_SYSVIPC=y" >> ./arch/arm64/configs/nabu_defconfig
-          echo "CONFIG_POSIX_MQUEUE=y" >> ./arch/arm64/configs/nabu_defconfig
-          echo "CONFIG_TMPFS_POSIX_ACL=y" >> ./arch/arm64/configs/nabu_defconfig
-          echo "CONFIG_TMPFS_XATTR=y" >> ./arch/arm64/configs/nabu_defconfig
-          echo "CONFIG_NAMESPACES=y" >> ./arch/arm64/configs/nabu_defconfig
-          echo "CONFIG_PID_NS=y" >> ./arch/arm64/configs/nabu_defconfig
-          echo "CONFIG_UTS_NS=y" >> ./arch/arm64/configs/nabu_defconfig
-          echo "CONFIG_IPC_NS=y" >> ./arch/arm64/configs/nabu_defconfig
+          #echo "CONFIG_SYSCTL=y" >> ./arch/arm64/configs/nabu_defconfig
+          #echo "CONFIG_SYSVIPC=y" >> ./arch/arm64/configs/nabu_defconfig
+          #echo "CONFIG_POSIX_MQUEUE=y" >> ./arch/arm64/configs/nabu_defconfig
+          #echo "CONFIG_TMPFS_POSIX_ACL=y" >> ./arch/arm64/configs/nabu_defconfig
+          #echo "CONFIG_TMPFS_XATTR=y" >> ./arch/arm64/configs/nabu_defconfig
+          #echo "CONFIG_NAMESPACES=y" >> ./arch/arm64/configs/nabu_defconfig
+          #echo "CONFIG_PID_NS=y" >> ./arch/arm64/configs/nabu_defconfig
+          #echo "CONFIG_UTS_NS=y" >> ./arch/arm64/configs/nabu_defconfig
+          #echo "CONFIG_IPC_NS=y" >> ./arch/arm64/configs/nabu_defconfig
       - name: Build kernel
         run: |
           export KBUILD_BUILD_USER=${{ github.actor }}
           export ARCH=arm64
           export ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true
-          export KBUILD_BUILD_HOST=lcx
-          export KBUILD_BUILD_USER=kuan-@Xinran_StarBai
+          export KBUILD_BUILD_HOST=aemeath
+          export KBUILD_BUILD_USER=aemeath-elysia
           export PATH="$GITHUB_WORKSPACE/workdir/clang/bin/:$PATH"
           export CROSS_COMPILE_ARM32=arm-linux-gnueabi-
           export CROSS_COMPILE=aarch64-linux-gnu-
@@ -130,7 +130,7 @@ jobs:
 
       - name: Create GitHub Release
         id: create_release
-        uses: actions/create-release@v1
+        uses: softprops/action-gh-release@v3
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
