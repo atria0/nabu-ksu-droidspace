@@ -45,6 +45,7 @@ jobs:
       - name: Install ReSukiSU
         run: |
           cd $GITHUB_WORKSPACE/workdir/source
+          curl -LSs "https://raw.githubusercontent.com/ReSukiSU/ReSukiSU/main/kernel/setup.sh" | bash
           #sed -i "\$s|echo \"\\\$res\"|echo \"-nabu_aemeath-elysian\"|" ./scripts/setlocalversion
           #rm -rf KernelSU
           #curl -LSs "https://raw.githubusercontent.com/ShirkNeko/SukiSU-Ultra/refs/heads/main/kernel/setup.sh" | bash -s nongki
