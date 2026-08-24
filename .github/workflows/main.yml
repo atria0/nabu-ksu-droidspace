@@ -45,17 +45,17 @@ jobs:
       - name: Install ReSukiSU
         run: |
           cd $GITHUB_WORKSPACE/workdir/source
-          curl -LSs "https://raw.githubusercontent.com/ReSukiSU/ReSukiSU/main/kernel/setup.sh" | bash
           #sed -i "\$s|echo \"\\\$res\"|echo \"-nabu_aemeath-elysian\"|" ./scripts/setlocalversion
-          #rm -rf KernelSU
+          rm -rf KernelSU
+          curl -LSs "https://raw.githubusercontent.com/ReSukiSU/ReSukiSU/main/kernel/setup.sh" | bash -s nongki
           #curl -LSs "https://raw.githubusercontent.com/ShirkNeko/SukiSU-Ultra/refs/heads/main/kernel/setup.sh" | bash -s nongki
-          #cd ./KernelSU
-          #KSU_VERSION=$(expr $(/usr/bin/git rev-list --count main) "+" 10606)
-          #echo "KSUVER=$KSU_VERSION" >> $GITHUB_ENV
-          #echo "ksuver=$KSU_VERSION" >> $GITHUB_OUTPUT
-          #export KSU_VERSION=$KSU_VERSION
-          #sed -i "s/DKSU_VERSION=12800/DKSU_VERSION=$KSU_VERSION/" kernel/Makefile
-          #cd ..
+          cd ./KernelSU
+          KSU_VERSION=$(expr $(/usr/bin/git rev-list --count main) "+" 10606)
+          echo "KSUVER=$KSU_VERSION" >> $GITHUB_ENV
+          echo "ksuver=$KSU_VERSION" >> $GITHUB_OUTPUT
+          export KSU_VERSION=$KSU_VERSION
+          sed -i "s/DKSU_VERSION=12800/DKSU_VERSION=$KSU_VERSION/" kernel/Makefile
+          cd ..
           #echo "CONFIG_MODULE_SIG=n" >> ./arch/arm64/configs/nabu_defconfig
           #echo "CONFIG_MODULE_SIG_ALL=n" >> ./arch/arm64/configs/nabu_defconfig
           #echo "CONFIG_MODULES=y" >> ./arch/arm64/configs/nabu_defconfig
