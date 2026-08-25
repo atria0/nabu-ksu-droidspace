@@ -44,8 +44,7 @@ jobs:
              $GITHUB_WORKSPACE/workdir/source
       - name: Install ReSukiSU
         run: |
-          cd $GITHUB_WORKSPACE/workdir/source
-          rm -rf KernelSU
+          cd $GITHUB_WORKSPACE/workdir/source/
           #sed -i "\$s|echo \"\\\$res\"|echo \"-nabu_aemeath-elysian\"|" ./scripts/setlocalversion
           git clone https://github.com/ReSukiSU/ReSukiSU.git ./KernelSU
           #curl -LSs "https://raw.githubusercontent.com/ShirkNeko/SukiSU-Ultra/refs/heads/main/kernel/setup.sh" | bash -s nongki
@@ -85,16 +84,7 @@ jobs:
           export PATH="$GITHUB_WORKSPACE/workdir/clang/bin/:$PATH"
           export CROSS_COMPILE_ARM32=arm-linux-gnueabi-
           export CROSS_COMPILE=aarch64-linux-gnu-
-          cd $GITHUB_WORKSPACE/workdir/source
-          #git clone https://gitlab.com/simonpunk/susfs4ksu.git
-          #cp ./susfs4ksu/kernel_patches/KernelSU/10_enable_susfs_for_ksu.patch ./KernelSU/
-          #cp ./susfs4ksu/kernel_patches/50_add_susfs_in_kernel-4.14.patch ./
-          #cp ./susfs4ksu/kernel_patches/fs/susfs.c ./fs/
-          #cp ./susfs4ksu/kernel_patches/include/linux/susfs.h ./include/linux/
-          #patch -p1 < ./KernelSU/10_enable_susfs_for_ksu.patch
-          #patch -p1 < ./50_add_susfs_in_kernel-4.14.patch
-          #patch -p1 < 10_enable_susfs_for_ksu.patch
-          #patch -p1 < 50_add_susfs_in_kernel-4.14.patch
+          cd $GITHUB_WORKSPACE/workdir/source/
           make O=out nabu_defconfig CC=clang
           make -j$(nproc --all) O=out CC=clang LD=ld.lld
       - name: Verify output
