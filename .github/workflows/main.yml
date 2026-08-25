@@ -47,6 +47,7 @@ jobs:
           cd $GITHUB_WORKSPACE/workdir/source/
           #sed -i "\$s|echo \"\\\$res\"|echo \"-nabu_aemeath-elysian\"|" ./scripts/setlocalversion
           git clone https://github.com/ReSukiSU/ReSukiSU.git ./drivers/KernelSU
+          sed -i '7c\#include <linux/spinlock.h>' ./drivers/KernelSU/kernel/selinux/rule.c
           #curl -LSs "https://raw.githubusercontent.com/ShirkNeko/SukiSU-Ultra/refs/heads/main/kernel/setup.sh" | bash -s nongki
           #cd ./KernelSU
           #KSU_VERSION=$(expr $(/usr/bin/git rev-list --count main) "+" 10606)
