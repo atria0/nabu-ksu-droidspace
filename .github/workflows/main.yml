@@ -47,7 +47,8 @@ jobs:
           cd $GITHUB_WORKSPACE/workdir/source/
           #sed -i "\$s|echo \"\\\$res\"|echo \"-nabu_aemeath-elysian\"|" ./scripts/setlocalversion
           #git clone https://github.com/ReSukiSU/ReSukiSU.git ./drivers/KernelSU
-          sed -i '7c\#include <linux/rwlock_rt.h>' ./drivers/KernelSU/kernel/selinux/rules.c
+          #git clone https://github.com/SukiSU-Ultra/SukiSU-Ultra.git ./drivers/KernelSU
+          #sed -i '7c\#include <linux/rwlock_rt.h>' ./drivers/KernelSU/kernel/selinux/rules.c
           #curl -LSs "https://raw.githubusercontent.com/ShirkNeko/SukiSU-Ultra/refs/heads/main/kernel/setup.sh" | bash -s nongki
           curl -LSs "https://raw.githubusercontent.com/SukiSU-Ultra/SukiSU-Ultra/main/kernel/setup.sh" | bash -s builtin
           #cd ./KernelSU
