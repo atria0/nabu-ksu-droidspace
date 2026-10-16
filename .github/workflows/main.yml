@@ -83,6 +83,7 @@ jobs:
           #echo "CONFIG_PID_NS=y" >> ./arch/arm64/configs/nabu_defconfig
           #echo "CONFIG_UTS_NS=y" >> ./arch/arm64/configs/nabu_defconfig
           #echo "CONFIG_IPC_NS=y" >> ./arch/arm64/configs/nabu_defconfig
+          
           echo "CONFIG_NTSYNC=m" >> ./arch/arm64/configs/nabu_defconfig
       - name: Build kernel
         run: |
@@ -95,6 +96,7 @@ jobs:
           export CROSS_COMPILE_ARM32=arm-linux-gnueabi-
           export CROSS_COMPILE=aarch64-linux-gnu-
           cd $GITHUB_WORKSPACE/workdir/source/
+          patch -p1 < ./ntsync_base.patch
           make O=out nabu_defconfig CC=clang
           make -j$(nproc --all) O=out CC=clang LD=ld.lld
       - name: Verify output
