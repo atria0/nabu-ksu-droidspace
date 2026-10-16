@@ -84,7 +84,7 @@ jobs:
           #echo "CONFIG_UTS_NS=y" >> ./arch/arm64/configs/nabu_defconfig
           #echo "CONFIG_IPC_NS=y" >> ./arch/arm64/configs/nabu_defconfig
           
-          echo "CONFIG_NTSYNC=m" >> ./arch/arm64/configs/nabu_defconfig
+          echo "CONFIG_NTSYNC=n" >> ./arch/arm64/configs/nabu_defconfig
       - name: Build kernel
         run: |
           export KBUILD_BUILD_USER=${{ github.actor }}
