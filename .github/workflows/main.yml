@@ -71,7 +71,7 @@ jobs:
           #echo "CONFIG_MANUAL_HOOK=y" >> ./arch/arm64/configs/nabu_defconfig
           echo "CONFIG_KSU_MANUAL_HOOK=y" >> ./arch/arm64/configs/nabu_defconfig
           echo "CONFIG_KSU_MANUAL_SU=y" >> ./arch/arm64/configs/nabu_defconfig
-          echo "KSU_MANUAL_HOOK=y" >> ./arch/arm64/configs/nabu_defconfig
+          #echo "KSU_MANUAL_HOOK=y" >> ./arch/arm64/configs/nabu_defconfig
           #echo "CONFIG_KERNELSU=y" >> ./arch/arm64/configs/nabu_defconfig
           #sed -i '/atomic_set(&current->seccomp.filter_count, 0);/d' drivers/kernelsu/core_hook.c
           #echo "CONFIG_SYSCTL=y" >> ./arch/arm64/configs/nabu_defconfig
